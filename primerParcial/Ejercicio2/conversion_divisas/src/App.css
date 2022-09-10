@@ -67,9 +67,14 @@
   padding: 15px;
 }
 
-.calcular-container{
+.result-container p{
   background-color: #fff;
-  padding: 15px;
+  text-align: justify;
+}
+
+.result-container p span{
+  background-color: #fff;
+  font-weight: bold;
 }
 
 .calcular{
