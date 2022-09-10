@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0c2032;
+}
+
+.title{
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.main-container{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.calc-container{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 20px 0px;
+}
+
+.comp-title{
+  padding: 5px;
+  font-size: 20px;
+  background-color: #fff;
+}
+
+.form-container{
+  width: 100%;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.form-container form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.form-container form label,
+.form-container form input{
+  background-color: #fff;
+  padding: 5px;
+  margin: 2px;
+  outline: none;
+}
+
+.result-container{
+  background-color: #fff;
+  padding: 15px;
+}
+
+.calcular-container{
+  background-color: #fff;
+  padding: 15px;
+}
+
+.calcular{
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0.5px 0.5px 5px #0c2032;
+}
+
