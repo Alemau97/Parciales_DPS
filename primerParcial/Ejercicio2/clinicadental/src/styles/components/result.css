@@ -1,0 +1,35 @@
+.infoPaciente{
+    width: 75%;
+    background-color:rgb(32, 32, 32);
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #FFF01F;
+    margin: 80px auto 0px auto;
+    justify-content: space-around;
+}
+
+.itemResult{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #FFF01F;
+    margin: 12px 0px;
+    border-radius: 8px;
+    padding: 12px 0px;
+}
+
+.labelText{
+    color: #FFF01F;
+    font-size: 26px;
+    margin: 0px;
+    padding: 4px 0px;
+    font-weight: 700px;
+}
+
+.infoText{
+    color: white;
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 600;
+}

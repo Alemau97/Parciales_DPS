@@ -1,0 +1,95 @@
+.formComponent{
+    background-color:rgb(32, 32, 32);
+    border: 2px solid #FFF01F;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+h2{
+    color: #FFF01F;
+}
+
+.inputsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px 120px;
+}
+
+.inputItem{
+    width: 40%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+    padding: 12px 20px;
+}
+
+.inputItem label{
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF01F;
+    margin-bottom: 3px;
+}
+
+.inputItem input{
+    height: 25px;
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #FFF01F;
+}
+
+.inputItem input:focus{
+    outline: none;
+}
+
+.inputItem input::placeholder{
+    color: white;
+    font-weight: 400;
+}
+
+select{
+    height: 25px;
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #FFF01F;
+}
+
+select::placeholder{
+    font-weight: 400;
+}
+
+select:focus{
+    outline: none;
+}
+
+.submitButton{
+    margin: 18px 0px;
+    padding: 14px 120px;
+    background-color: transparent;
+    font-size: 26px;
+    font-weight: bold;
+    color: #FFF01F;
+    border: 2px solid #FFF01F;
+    border-radius: 8px;
+    transition: all 0.4s linear;
+    cursor: pointer;
+}
+
+.submitButton:hover{
+    background: #FFF01F;
+    color: black;
+}
