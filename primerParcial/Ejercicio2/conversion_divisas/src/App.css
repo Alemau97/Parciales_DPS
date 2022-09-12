@@ -85,3 +85,37 @@
   box-shadow: 0.5px 0.5px 5px #0c2032;
 }
 
+.main-main-title{
+  color: #fff;
+  font-size: 20pt;
+  text-align: justify;
+  padding: 15px;
+  text-decoration: underline;
+}
+
+.integrants{
+  color: #fff;
+  text-align: justify;
+  padding: 5px 15px;
+}
+
+.main-container-links{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-links{
+  color: #0c2032;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #fff;
+  transition: all 300ms ease;
+}
+
+.main-links:hover{
+  font-weight: bold;
+}

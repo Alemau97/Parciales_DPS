@@ -4,19 +4,19 @@ import { LibrasGramos } from './components/LibrasGramos';
 import { LibrasKilos } from './components/LibrasKilos';
 import { LibrasOnzas } from './components/LibrasOnzas';
 
-function App() {
+function Conversiones() {
   return (
     <>
       <header className='header'>
         <h1 className='title'>Convertor de unidades de peso</h1>
       </header>
-      <main className='main-container'>
+      <div className='main-container'>
         <LibrasOnzas />
         <LibrasKilos />
         <LibrasGramos />
-      </main>
+      </div>
     </>
   );
 }
 
-export default App;
+export default Conversiones;
