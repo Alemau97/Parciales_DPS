@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Conversiones from './Conversiones';
+import Clinica from './Clinica';
 import Home from './Home';
 
 export default function AppCont() {
@@ -13,6 +14,7 @@ export default function AppCont() {
         <Route path='/' element={<App />}>
           <Route index element={<Home />}/>
           <Route path='conversiones' element={<Conversiones />}/>
+          <Route path='clinica' element={<Clinica />}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './App.css';
+import './clinica.css';
 import { Form } from './components/Form';
 import { Results } from './components/Results';
 
-function App() {
+function Clinica() {
   const [pacientes, setPaciente] = useState([
     {
         nombre: 'Cristiano',
@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="Clinica">
       <Form onSubmit={getData}/>
       {
         pacientes.map((datos, index) => (
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default Clinica;

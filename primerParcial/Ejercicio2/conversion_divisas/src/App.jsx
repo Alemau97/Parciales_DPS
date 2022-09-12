@@ -12,7 +12,7 @@ function App() {
         <div className='main-container-links'>
           <Link to="/" className='main-links'>Inicio</Link>
           <Link to="/conversiones" className='main-links'>Conversiones de unidades de peso</Link>
-          <Link to="#" className='main-links'>Clínica dental</Link>
+          <Link to="/clinica" className='main-links'>Clínica dental</Link>
         </div>
       </main>
       <Outlet />

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components/result.css'
+import '../styles/result.css'
 
 export const Results = ({datos}) => {
   return (
