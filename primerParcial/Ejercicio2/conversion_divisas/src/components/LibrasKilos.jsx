@@ -10,7 +10,7 @@ export const LibrasKilos = () => {
     return(
         <>
             <div className="calc-container">
-                <h2 className="comp-title">Convertor de Libras a Onzas</h2>
+                <h2 className="comp-title">Convertor de Libras a Kilogramos</h2>
                 <div className="form-container">
                     <form 
                         onSubmit={e => {
