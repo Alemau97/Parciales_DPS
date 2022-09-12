@@ -19,7 +19,7 @@ export const LibrasGramos = () => {
                         }}
                     >
                         <label for="libras">Ingrese el valor en Libras:</label>
-                        <input type="text" className="get-libras-to-ounce" placeholder="Cant. Libras" name="libras" autoComplete="off"/>
+                        <input type="number" className="get-libras-to-ounce" placeholder="Cant. Libras" name="libras" autoComplete="off" min="1" pattern="^[0-9]+" required/>
                         <button type="submit" className="calcular">Calcular</button>
                     </form>
                 </div>
