@@ -53,7 +53,7 @@ const ropa = [
   },
 ];
 
-export const TiendaComp = () => {
+export const TiendaComps = () => {
 
   const [ropaValue, setRopaValue] = useState('');
 

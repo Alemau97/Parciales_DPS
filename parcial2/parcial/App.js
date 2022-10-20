@@ -1,9 +1,9 @@
 
 import { StyleSheet, Text, View } from 'react-native';
-import { Home } from './screens/Home';
-import { Calculadora } from './screens/Calculadora';
-import { Conversor } from './screens/Conversor';
-import { Tienda } from './screens/Tienda';
+import { Home } from './src/screens/Home';
+import { Calculadora } from './src/screens/Calculadora';
+import { Conversor } from './src/screens/Conversor';
+import { Tienda } from './src/screens/Tienda';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
