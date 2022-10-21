@@ -4,6 +4,7 @@ import { Home } from './src/screens/Home';
 import { Calculadora } from './src/screens/Calculadora';
 import { Conversor } from './src/screens/Conversor';
 import { Tienda } from './src/screens/Tienda';
+import { TiendaComps } from './src/components/TiendaComps';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -48,6 +49,16 @@ export default function App() {
         <Tab.Screen 
           name="Tienda" 
           component={Tienda} 
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <MaterialIcons name="store" size={25} color="black" />
+            )
+          }}
+          />
+          <Tab.Screen 
+          name="Factura" 
+          component={TiendaComps} 
           options={{
             headerShown: false,
             tabBarIcon: () => (
