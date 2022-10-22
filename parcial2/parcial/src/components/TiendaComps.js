@@ -21,7 +21,8 @@ export const TiendaComps = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: 'teal'
   },

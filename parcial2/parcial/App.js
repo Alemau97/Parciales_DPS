@@ -56,16 +56,6 @@ export default function App() {
             )
           }}
           />
-          <Tab.Screen 
-          name="Factura" 
-          component={TiendaComps} 
-          options={{
-            headerShown: false,
-            tabBarIcon: () => (
-              <MaterialIcons name="store" size={25} color="black" />
-            )
-          }}
-          />
       </Tab.Navigator>
     </NavigationContainer>
   );
