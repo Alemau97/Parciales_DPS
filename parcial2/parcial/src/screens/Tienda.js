@@ -110,7 +110,7 @@ export const Tienda = () => {
   };
 
   const pasoDatos = (shared) => {
-    setFactura([...shared, RecogerDatos])
+    setFactura([...shared, RecogerDatos ])
   }
 
   return (
