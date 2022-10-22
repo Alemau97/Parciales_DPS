@@ -122,12 +122,16 @@ export const FormStore = (props) => {
             title='Facturar'
             style={styles.button}
             onPress={() => {
-              props.setCantInput('');
-              props.setValuePicker('');
-              props.costosPicker(0);
-              //setFactura([...factura, RecogerDatos]);
-              props.setFact([...props.fact, props.nuevosDatos])
-              alert('Factura generada');
+              if(props.valorPicker ==  '' || props.inputValue == 0){
+                alert('No puede haber campos vacíos')
+              }else{
+                props.setCantInput('');
+                props.setValuePicker('');
+                props.costosPicker(0);
+                //setFactura([...factura, RecogerDatos]);
+                props.setFact([...props.fact, props.nuevosDatos])
+                alert('Factura generada');
+              }
             }}
           />
         </View>

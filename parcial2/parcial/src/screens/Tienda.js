@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableHighlight, Modal, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { TiendaComps } from '../components/TiendaComps';
 import { FormStore } from '../components/FormStore';
@@ -15,6 +15,7 @@ export const Tienda = () => {
   const [total, setTotal] = useState(0);
 
   const [mostrarFact, setMostrarFact] = useState(false);
+  const [modal, setModal] = useState(false);
 
   let precios = Math.round(costo * sendCant);
   let descuentos;
@@ -77,20 +78,26 @@ export const Tienda = () => {
         nuevosDatos = {RecogerDatos}
         fact={factura}
       />
-      <TouchableHighlight
-        activeOpacity={0.5}
-        underlayColor='#122b45'
-        onPress={()=> {
-          setMostrarFact(!mostrarFact)
+      <Pressable
+        onPress={()=>{
+          setModal(!modal);
+          setMostrarFact(!mostrarFact);
         }}
         style={styles.mostrar}
       >
-        <Text 
-          style={{color: 'white', textAlign: 'center'}}
-        >{mostrarFact ? 'Ocultar facturas' : 'Mostrar facturas'}</Text>
-      </TouchableHighlight>
-        {
-          mostrarFact ? (
+        <Text style={{color: 'white', textAlign: 'center', padding: 2}}>Ver factura</Text>
+      </Pressable>
+      <View>
+        <Modal
+          animationType='fade'
+          transparent={false}
+          visible={modal}
+          onRequestClose={()=>{
+            setModal(!modal)
+          }}
+        >
+          {
+            mostrarFact ? (
             <>
               {
                 factura.map((data,key)=>{
@@ -108,12 +115,23 @@ export const Tienda = () => {
                 })
               }
             </>
-          ) : (
-            <>
-              <View></View>
-            </>
-          )
-        }
+            ) : (
+              <>
+                <View></View>
+              </>
+            )
+          }
+          <Pressable
+            onPress={()=>{
+              setModal(!modal);
+              setMostrarFact(!mostrarFact);
+            }}
+            style={styles.mostrar}
+          >
+            <Text style={{color: 'white', textAlign: 'center', padding: 2}}>Nueva compra</Text>
+          </Pressable>
+        </Modal>
+      </View>
     </>
   )
 }
