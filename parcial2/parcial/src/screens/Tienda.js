@@ -1,55 +1,56 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, Button, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, Button, TextInput, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { TiendaComps } from '../components/TiendaComps';
 
 const ropa = [
   {
     nombre: '',
-    valor: 0,
+    valor: '',
   },
   {
     nombre: 'Camiseta básica caballero',
-    valor: 10.00,
+    valor: 'Camiseta básica caballero',
   },
   {
     nombre: 'Camisa formal caballero',
-    valor: 25.00,
+    valor: 'Camisa formal caballero',
   },
   {
     nombre: 'Camisa tipo polo caballero',
-    valor: 20.00,
+    valor: 'Camisa tipo polo caballero',
   },
   {
     nombre: 'Blusa básica',
-    valor: 10.99,
+    valor: 'Blusa básica',
   },
   {
     nombre: 'Blusa estampada',
-    valor: 15.99,
+    valor: 'Blusa estampada',
   },
   {
     nombre: 'Camiseta dama',
-    valor: 24.99,
+    valor: 'Camiseta dama',
   },
   {
     nombre: 'Jeans',
-    valor: 35.00,
+    valor: 'Jeans',
   },
   {
     nombre: 'Pants jogger',
-    valor: 30.00,
+    valor: 'Pants jogger',
   },
   {
     nombre: 'Short',
-    valor: 25.99,
+    valor: 'Short',
   },
   {
     nombre: 'Sneakers caballero',
-    valor: 50.00,
+    valor: 'Sneakers caballero',
   },
   {
     nombre: 'Sneakers Dama',
-    valor: 50.99,
+    valor: 'Sneakers Dama',
   },
 ];
 
@@ -57,50 +58,59 @@ export const Tienda = () => {
 
   const [ropaValue, setRopaValue] = useState('');
   const [sendCant, setSendCant] = useState(0);
+  const [costo, setCosto] = useState(0);
+  const [precio, setPrecio] = useState(0);
+  const [descuento, setDescuento] = useState(0);
+  const [total, setTotal] = useState(0);
 
-  const resumen = () => {
+  let precios = Math.round(costo * sendCant);
+  let descuentos;
+  let totals;
 
-    const precio = Math.round(ropaValue * sendCant);
-    let descuento;
-    let total;
+  useEffect(() => {
+    
+    setPrecio(precios);
+    setDescuento(descuentos);
+    setTotal(totals);
 
-    if(sendCant >= 15 && sendCant <= 49){
+  }, [precios, descuentos, totals])
 
-      descuento = precio * 0.05;
-      total = precio - descuento;
-      alert(`Precio sin descuento: ${precio}`);
-      alert(`Descuento: ${descuento}`)
-      alert(`Total a pagar: ${total}`)
+  if(sendCant >= 15 && sendCant <= 49){
+    descuentos = precios * 0.05;
+    totals = precios - descuentos;
+  }else if(sendCant >= 50 && sendCant <= 79){
+    descuentos = precios * 0.13;
+    totals = precios - descuentos;
+  }else if(sendCant >= 80){
+    descuentos = precios * 0.25;
+    totals = precios - descuentos;
+  }else{
+    descuentos = 0;
+    totals = precios - descuentos;
+  }
 
-    }else if(sendCant >= 50 && sendCant <= 79){
+  const [factura, setFactura] = useState([
+    {
+      Prenda: 'Camisola',
+      Cantidad: 2,
+      PrecioUnit: 15,
+      PagoSinDesc: 30,
+      Descuento: 0,
+      TotalPago: 30
+    },
+  ]);
 
-      descuento = precio * 0.13;
-      total = precio - descuento;
-      alert(`Precio sin descuento: ${precio}`);
-      alert(`Descuento: ${descuento}`)
-      alert(`Total a pagar: ${total}`)
+  const RecogerDatos = {
+    Prenda: ropaValue,
+    Cantidad: sendCant,
+    PrecioUnit: costo,
+    PagoSinDesc: precio,
+    Descuento: descuento,
+    TotalPago: total
+  };
 
-    }else if(sendCant >= 80){
-
-      descuento = precio * 0.25;
-      total = precio - descuento;
-      alert(`Precio sin descuento: ${precio}`);
-      alert(`Descuento: ${descuento}`)
-      alert(`Total a pagar: ${total}`)
-
-    }else{
-      alert (`No aplica descuento, por lo tanto el total es : ${precio}`);
-    }
-
-    const facturar = {
-      Prenda: '',
-      Cantidad: sendCant,
-      PrecioUnit: ropaValue,
-      PagoSinDesc: precio,
-      Descuento: descuento,
-      TotalPago: total
-    }
-
+  const pasoDatos = (shared) => {
+    setFactura([...shared, RecogerDatos])
   }
 
   return (
@@ -115,6 +125,31 @@ export const Tienda = () => {
           selectedValue={ropaValue}
           onValueChange={(itemValue, itemIndex)=>{
             setRopaValue(itemValue);
+            if(itemValue==='Camiseta básica caballero'){
+              setCosto(10.99);
+            }else if(itemValue==='Camisa formal caballero'){
+              setCosto(20);
+            }else if(itemValue==='Camisa tipo polo caballero'){
+              setCosto(15);
+            }else if(itemValue==='Blusa básica'){
+              setCosto(10.99);
+            }else if(itemValue==='Blusa estampada'){
+              setCosto(17);
+            }else if(itemValue==='Camiseta dama'){
+              setCosto(15);
+            }else if(itemValue==='Jeans'){
+              setCosto(35.99)
+            }else if(itemValue==='Pants jogger'){
+              setCosto(30.99)
+            }else if(itemValue==='Short'){
+              setCosto(25.99)
+            }else if(itemValue==='Sneakers caballero'){
+              setCosto(50.99)
+            }else if(itemValue==='Sneakers Dama'){
+              setCosto(50.99)
+            }else{
+              setCosto(0);
+            }
           }}
         >
           {
@@ -138,21 +173,38 @@ export const Tienda = () => {
           style={styles.numberKeyboard}
         />
         <Text style={styles.descp}>Precio c/u ($): </Text>
-        <Text style={styles.descp}>{ropaValue}</Text>
+        <Text style={styles.descp}>{costo}</Text>
         <View>
           <Button   
             title='Facturar'
             style={styles.button}
             onPress={() => {
-              resumen();
               setSendCant('');
               setRopaValue('');
+              setCosto(0);
+              setFactura([...factura, RecogerDatos]);
+              alert('Factura generada');
             }}
           />
         </View>
       </View>
-      <Text>{ropaValue}</Text>
-      <Text>{resumen().facturar.Cantidad}</Text>
+      <ScrollView>
+      {
+        factura.map((data,key)=>{
+          return(
+            <TiendaComps 
+              Prenda={data.Prenda}
+              Cantidad={data.Cantidad}
+              PrecioUnit={data.PrecioUnit}
+              PagoSinDesc={data.PagoSinDesc}
+              Descuento={data.Descuento}
+              TotalPago={data.TotalPago}
+              key={key}
+            />
+          )
+        })
+      }
+      </ScrollView>
     </SafeAreaView>
   )
 }

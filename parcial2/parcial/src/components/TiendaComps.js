@@ -3,37 +3,16 @@ import { View, Text, StyleSheet, SafeAreaView, Button, TextInput } from 'react-n
 import { Picker } from '@react-native-picker/picker';
 
 export const TiendaComps = (props) => {
-  const [factura, setFactura] = useState([
-    {
-      Prenda: 'Camisola',
-      Cantidad: 2,
-      PrecioUnit: 15,
-      PagoSinDesc: 30,
-      Descuento: 0,
-      TotalPago: 30
-    },
-  ]);
-
+  
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Facturación tienda Mimi</Text>
-      </View>
       <View style={styles.facturaContainer}>
-        {
-          factura.map((data, key) => {
-            return(
-              <>
-                <Text key={key} style={styles.facturaDesc}>Tipo de ropa: {data.Prenda}</Text>
-                <Text key={key} style={styles.facturaDesc}>Cantidad: {data.Cantidad}</Text>
-                <Text key={key} style={styles.facturaDesc}>Precio unitario: ${data.PrecioUnit}</Text>
-                <Text key={key} style={styles.facturaDesc}>Total sin descuento: ${data.PagoSinDesc}</Text>
-                <Text key={key} style={styles.facturaDesc}>Descuento aplicado: ${data.Descuento}</Text>
-                <Text key={key} style={styles.facturaDescTotal}>Total a pagar: ${data.TotalPago}</Text>
-              </>
-            )
-          })
-        }
+        <Text style={styles.facturaDesc}>Tipo de ropa: {props.Prenda}</Text>
+        <Text style={styles.facturaDesc}>Cantidad: {props.Cantidad}</Text>
+        <Text style={styles.facturaDesc}>Precio unitario: ${props.PrecioUnit}</Text>
+        <Text style={styles.facturaDesc}>Total sin descuento: ${props.PagoSinDesc}</Text>
+        <Text style={styles.facturaDesc}>Descuento aplicado: ${props.Descuento}</Text>
+        <Text style={styles.facturaDescTotal}>Total a pagar: ${props.TotalPago}</Text>
       </View>
     </SafeAreaView>
   )
